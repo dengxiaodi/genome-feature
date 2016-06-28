@@ -13,7 +13,7 @@ option_list <- list(
 	make_option(c("-b","--bin-size"), help="bin size", default = 100)
 )
 
-arguments <- parse_args(OptionParser(usage = "%prog [options] regionPath", option_list = option_list), positional_arguments = 2)
+arguments <- parse_args(OptionParser(usage = "%prog [options] genefile regionfile", option_list = option_list), positional_arguments = 2)
 opt <- arguments$options
 
 gDensityFilter <- opt$`density-filter`
