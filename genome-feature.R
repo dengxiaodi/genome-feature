@@ -53,7 +53,7 @@ genes.seg.bins <- genes.seg[, .(name2, strand, end, bStart = c(head(seq(sStart, 
 genes.seg.bins$bId[genes.seg.bins$strand == '-'] <- -genes.seg.bins$bId[genes.seg.bins$strand == '-']
 genes.rg <- GRanges(seqnames = genes.seg.bins$chr, ranges = IRanges(start = genes.seg.bins$bStart, end = genes.seg.bins$bEnd), strand = "+")
 
-regions <- fread("regions.G.csv", header = TRUE, sep = "\t")
+regions <- fread(gRegionFile, header = TRUE, sep = "\t")
 regions <- regions[meanScore < gScoreFilter & meanDensity < gDensityFilter, ]
 regions$center <- as.integer((regions$start + regions$end) / 2)
 regions.rg <- GRanges(seqnames = regions$chrom, ranges = IRanges(start = regions$center, end = regions$center), strand = "+")
