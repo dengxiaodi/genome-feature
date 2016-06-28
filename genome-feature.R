@@ -65,7 +65,7 @@ genes.seg.bins$hits[stats[, 1]] <- stats[, 2]
 
 total.hits <- sum(genes.seg.bins$hits)
 dist <- genes.seg.bins[, .(p = sum(hits) / total.hits), by = "bId"]
-dist$tissue <- tussue
+dist$tissue <- tissue
 out.filename <- paste("gene.pos", tissue, rtype, "csv", sep = ".")
 write.csv(dist, out.filename, row.names = FALSE, quote = FALSE)
 
